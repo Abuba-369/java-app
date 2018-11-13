@@ -11,10 +11,12 @@ pipeline {
                 sh '${m2_home}/bin/mvn -f java-sample-app/pom.xml clean install' 
             }
         }
-	stage('Deploy') {
+	stage('Deploy') { 
+	    steps { 
 	    sshagent(['tomcat-dev']) {
 		sh 'scp -o StrictHostKeyChecking=no target/*.war root@192.168.1.228:/root/tomcat9/webapps'
 	  }
       }
     }
+}
 }
