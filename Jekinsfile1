@@ -1,0 +1,15 @@
+node{
+    stage('SCM checkout'){
+    git https://github.com/Abuba-369/java-app
+    }
+    stage(Compile-package){
+    sh '${m2_home}/bin/mvn -f java-sample-app/pom.xml clean install'
+    }
+    stage('Deploy to tomcat'){
+    
+      sshagent(['tomcat-dev']) {
+      sh 'scp -o StrictHostKeyChecking=no target/*.war zippyops@192.168.1.228:/root/tomacat9/webapps'
+      }
+      
+      }
+     }
