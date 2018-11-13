@@ -10,6 +10,11 @@ pipeline {
             steps {
                 sh '${m2_home}/bin/mvn -f java-sample-app/pom.xml clean install' 
             }
+	stage ('Build') {
+            steps {
+                sh '$scp /var/lib/jenkins/workspace/pipeline-test-2/java-sample-app/target/
+		    *.war root@192.168.1.228:/root/tomcat9/webapps' 
+            }
         }
     }
 }
