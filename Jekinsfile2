@@ -13,8 +13,11 @@ pipeline {
         }
 	stage('Deploy') { 
 	    steps { 
-	    
-		sh 
+	              //puppet.credentials ‘pe-team-token’
+		      puppet.hiera scope: 'development', key: 'build-version', value: 'v1.0.1'
+		      puppet.credentials 'pe-access-token'
+		sh ''
+		sh 'puppet agent -t'
 	  }
       }
     }
