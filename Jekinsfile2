@@ -16,7 +16,7 @@ pipeline {
 	              //puppet.credentials ‘pe-team-token’
 		      puppet.hiera scope: 'development', key: 'build-version', value: 'v1.0.1'
 		      puppet.credentials 'pe-access-token'
-		sh ''
+		sh 'scp /var/lib/jenkins/workspace/pipeline-test-2-abu/java-sample-app/target/*.war root@192.168.1.3:/root/tomcat/webapps'
 		sh 'puppet agent -t'
 	  }
       }
