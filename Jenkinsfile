@@ -14,7 +14,7 @@ pipeline {
         }
     stage ('Deploy') {
              steps {
-		sh 'ssh -o 'StrictHostKeyChecking no' root@192.168.1.3'
+	        sh 'ssh -o StrictHostKeyChecking=no root@puporigin.zippyops.com uptime'
                 sh 'scp /var/lib/jenkins/workspace/whattodo/java-sample-app/target/java-sample-app-1.0.0.war root@192.168.1.3:/root/tomcat/webapps'
 		sh 'puppet agent -t'     
             }
