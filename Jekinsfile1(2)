@@ -13,7 +13,7 @@ pipeline {
         }
 	stage('Deploy') { 
 	    steps { 
-	    
+	        puppet.credentials 'pe-access-token'
 		sh 'scp  /var/lib/jenkins/workspace/pipeline-test-2-abu/java-sample-app/target/*.war root@192.168.1.3:/root/tomcat9/webapps'
 	  }
       }
