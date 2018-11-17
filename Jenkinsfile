@@ -26,9 +26,9 @@ pipeline {
     // stage ('change values') {
        //      steps {
           //      sh 'puppet agent -t' 
-            }
+         //   }
 	    
-        }
+      //  }
     
     }
 	
