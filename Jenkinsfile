@@ -1,8 +1,6 @@
 pipeline {
     agent any
-	tools {
-        maven 'apache-maven-3.0.1' 
-    }
+	
     stages {
         stage ('checkout') {
             steps {
@@ -11,7 +9,7 @@ pipeline {
         }
           stage ('Build') {
              steps {
-                sh '${m3_home}/bin/mvn -f java-sample-app/pom.xml clean install' 
+                sh '${m2_home}/bin/mvn -f java-sample-app/pom.xml clean install' 
             }
 	    
         }
