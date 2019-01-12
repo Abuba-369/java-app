@@ -16,17 +16,17 @@ pipeline {
             }
 	    
         }
-    stage ('Deploy') {
-             steps {
+   // stage ('Deploy') {
+     //        steps {
 	       //  sh 'ssh -o StrictHostKeyChecking=no root@puporigin.zippyops.com uptime'
 		// sh 'ssh root@puporigin.zippyops.com -l  -o "PubkeyAuthentication=no"'
 		// sh 'PermitRootLogin yes'
-                sh 'scp  /var/lib/jenkins/workspace/whattodo/java-sample-app/target/java-sample-app-1.0.0.war root@puporigin.zippyops.com:/opt/tomcat/webapps'
+       //         sh 'scp  /var/lib/jenkins/workspace/whattodo/java-sample-app/target/java-sample-app-1.0.0.war root@puporigin.zippyops.com:/opt/tomcat/webapps'
 		// sh 'puppet agent -t' 
 		 
-            }
+         //   }
 	    
-        }
+      //  }
     // stage ('change values') {
        //      steps {
           //      sh 'puppet agent -t' 
