@@ -12,7 +12,7 @@ pipeline {
         }
           stage ('Build') {
              steps {
-                sh '${m2_home}/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/M3/bin -f java-sample-app/pom.xml clean install' 
+                sh '${m2_home}/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/M3/bin/mvn -f java-sample-app/pom.xml clean install' 
             }
 	    
         }
